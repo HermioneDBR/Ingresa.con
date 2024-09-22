@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INGRESA - Cursos de Preparación</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+header {
+        background-color: #000000;
+        color: white;
+        padding: 0px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px; /* Altura mínima suficiente para los elementos */
+        position: relative;
+        z-index: 1000;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+
+    /* IMAGENES DE REDES DEL HEADER */
+    .social-icons {
+    display: flex;
+    gap: 30px; /* Ajusta este valor para el espacio entre las imágenes */
+}
+/* CONFIGURACION DE LA LINEA NEGRA */
+    .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 2px 4px;
+    color: rgb(0, 0, 0);
+}
+/*LOGO Y OPCIONES*/
+.logo img {
+    height:60px;
+    width: auto;
+    padding: 2px 27px;
+}
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.main-nav li {
+    margin-left: 20px;
+}
+.main-nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 5px 10px;
+}
+.main-nav a:hover {
+    background: #707272;
+    border-radius: 5px;
+}
+
+.contact {
+    color: white;
+    font-size: 18px;
+}
+/* SLIDER CONFIGURACION */
+.slider {
+    width: 100%;
+    height: 50vh; /* Ajusta la altura al 60% de la pantalla visible */
+    background-color: lightgray;
+    position: relative;
+    margin-top: 1vh; /* Separación desde el header */
+    margin-bottom: 20vh; /* Aumentar la separación debajo del slider */
+    z-index: 1;
+}
+    
+.slider img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; 
+    font-size: 18px;
+    width: 40px;  
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; 
+}
+.prev {
+    left: 15px; 
+}
+
+.next {
+    right: 15px;
+}
+.dots-container {
+text-align: center;
+margin-top: 10px;
+}
+.dot {
+height: 15px;
+width: 15px;
+margin: 0 5px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;
+cursor: pointer;
+}
+.dot.active {
+background-color: #717171;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
+    z-index: 1001;
+}
+.dropdown-content a {
+    padding: 6px 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 17px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover > a {
+    background-color: #707272;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .slider {
+        height: 30vh; /* Reducir la altura del slider en pantallas pequeñas */
+        margin-bottom: 2vh; /* Reducir el margen inferior */
+    }
+
+    .container {
+        margin-top: 2vh; /* Reducir el margen superior de la sección "Nuestros Cursos" */
+    }
+}
+
+.CURSOS {
+    margin: 50px 0;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a múltiples filas si no caben en una sola */
+    justify-content: center; /* Centra todos los elementos horizontalmente */
+    gap: 20px; /* Espacio entre los elementos */
+    text-align: center;
+}
+
+.cursos {
+    width: 150px;
+    text-align: center;
+}
+
+.cursos img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease; /* Añade una transición suave */
+}
+
+.cursos img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al pasar el cursor (1.2 = 120%) */
+}
+
+.cursos h3 {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+@media (max-width: 768px) {
+    .CURSOS {
+        flex-wrap: wrap; /* En pantallas pequeñas, permitir que se ajusten a múltiples filas */
+        gap: 10px; /* Ajusta el espacio entre los elementos en pantallas pequeñas */
+    }
+}
+.services-section {
+    background-color: #d1f1b0; /* Color de fondo de la sección */
+    padding: 1px 0; /* Añadir relleno arriba y abajo */
+    width: 100%;
+    margin: 50px 0;
+    text-align: center; /* Centrar el texto */
+}
+
+.services-section h2 {
+    color: #000000; /* Cambiar color del título */
+    font-size: 2em;
+    margin-bottom: 10px; /* Separación entre título y los ítems */
+}
+.services-list {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden automáticamente */
+    justify-content: center; /* Centra los servicios horizontalmente */
+    gap: 20px; /* Espacio entre los servicios */
+}
+
+.service {
+    display: inline-block;
+    width: 150px;
+    margin: 20px;
+    text-align: center;
+}
+
+.service img {
+    width: 100px;
+    height: 100px;
+}
+.service h3 {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #000000; /* Cambiar color del texto de los servicios */
+}
+
+.container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* Agregar un margen superior para más separación */
+    margin-bottom: 5vh; /* Reducir el margen inferior */
+}
+.box {
+    background-color: #b8e9f7;
+    color: rgb(0, 0, 0);
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align:justify;
+    font-family: Arial, Helvetica, sans-serif
+}
+.box h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif
+}
+
+.box ul {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 0px 70px;
+}
+.box:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el cursor (1.2 = 120%) */
+}
+
+button {
+    padding: 10px 30px;
+    background-color: #ecdf63;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    margin-top: -70px; /* Ajusta esta propiedad para reducir la distancia */
+
+  }
+  
+  button:hover {
+    background-color: #eba0a0;
+  }
+  .work-with-me {
+        position: relative; /* Para que el contenido esté sobre el slider */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 90px;
+        height: 50vh; /* Igual que el slider */
+        z-index: 2; /* Por encima del slider */
+        color: #72ce3500;
+        background-color: #c9e265; /* Cambia el color de fondo */
+    }
+
+    .work-image {
+        width: 50%;
+        position: relative;
+        top: 0px; /* Sube la imagen más arriba */
+        margin-right: 70px;
+    }
+
+    .work-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 40%;
+    padding: 50px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: rgb(36, 88, 148); /* Texto en blanco */
+    }
+
+    .work-text h1 span {
+        font-style: italic;
+    }
+
+    .work-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+        font-size: 1rem;
+    }
+    label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f4f9ff;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.phone-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+small {
+    font-size: 12px;
+    color: red;
+}
+
+.submit-btn {
+    padding: 10px 15px;
+    background-color: #004687;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #003366;
+}
+    
+footer {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px; /* Aumenta este valor para bajar el pie de página */
+        border-top: 1px solid rgb(255, 255, 255); /* Línea negra delgada */
+        background-color: #000000;
+        font-size: 14px;
+    }
+
+    .footer-container p {
+        font-size: 1em;
+        color: rgb(255, 255, 255);
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px; /* Espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-item span {
+        font-size: 1.2em;
+        color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 768px) {
+        .contact-info {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    </div>
+    <h1 class="contact">Contacto: 55 2449 8795</h1>
+    <div class="social-icons">
+        <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+        <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+        <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
+    </div>
+</header>
+</nav>
+<nav class="main-nav">
+    <div class="logo">
+        <img src="Ingresaentrada.png" alt="Logo de la empresa">
+    </div>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+            <a href="#">Cursos ▼</a>
+            <div class="dropdown-content">
+                <a href="COMIPEMS.html">COMIPEMS</a>
+                <a href="IPN.html">IPN</a>
+                <a href="UNAM.html">UNAM</a>
+                <a href="UAM.html">UAM</a>
+                <a href="UAEMEX.html">UAEMEX</a>
+                <a href="UADY.html">UADY</a>
+                <a href="UV.html">UV</a>
+                <a href="TECNM.html">TECNM</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Iniciar Sesión ▼</a>
+            <div class="dropdown-content">
+                <a href="login.html">Alumnos</a>
+            </div>
+        </li>
+        <li><a href="NOSOTROS.html">Nosotros</a></li>
+        <li><a href="Contactos.html">Contáctanos</a></li>
+    </ul>
+</nav>
+
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide"><img src="1.png" alt="Imagen 1"></div>
+        <div class="slide"><img src="2.png" alt="Imagen 2"></div>
+        <div class="slide"><img src="3.png" alt="Imagen 3"></div>
+        <div class="slide"><img src="4.png" alt="Imagen 4"></div>
+        <div class="slide"><img src="5.png" alt="Imagen 5"></div>
+        <div class="slide"><img src="6.png" alt="Imagen 6"></div>
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+<div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<!-- NUESTROS CURSOS -->
+<div class="CURSOS">
+    <div class="cursos">
+        <a href="IPN.html"><img src="poli.png" alt="Politecnico"></a>
+        <h3>IPN</h3>
+    </div>
+    <div class="cursos">
+        <a href="UNAM.html"><img src="unam.png" alt="UNAM"></a>
+        <h3>UNAM</h3>
+    </div>
+    <div class="cursos">
+        <a href="UAM.html"><img src="uam.png" alt="UAM"></a>
+        <h3>UAM</h3>
+    </div>
+    <div class="cursos">
+        <a href="UAEMEX.html"><img src="uaemex.png" alt="UAEMEX"></a>
+        <h3>UAEMEX</h3>
+    </div>
+    <div class="cursos">
+        <a href="UADY.html"><img src="UADY.png" alt="UADY"></a>
+        <h3>UADY</h3>
+    </div>
+    <div class="cursos">
+        <a href="COMIPEMS.html"><img src="COMIPEMS.png" alt="COMIPEMS"></a>
+        <h3>COMIPEMS</h3>
+    </div>
+    <div class="cursos">
+        <a href="UV.html"><img src="UV.png" alt="UV"></a>
+        <h3>UV</h3>
+    </div>
+    <div class="cursos">
+        <a href="TECNM.html"><img src="Tecnologico.png" alt="TECNM"></a>
+        <h3>TECNM</h3>
+    </div>
+</div>
+
+
+<!-- Nueva sección de servicios -->
+<div class="services-section">
+    <h2>Contamos con:</h2>
+    <div class="service">
+        <img src="plataforma.png" alt="Plataforma Virtual">
+        <h3>Plataforma Virtual</h3>
+    </div>
+    <div class="service">
+        <img src="temarios.png" alt="Temarios Resueltos">
+        <h3>Temarios Resueltos</h3>
+    </div>
+    <div class="service">
+        <img src="grafica.png" alt="Gráficas de Avance">
+        <h3>Gráficas de Avance</h3>
+    </div>
+    <div class="service">
+        <img src="guias.png" alt="Guías Resueltas">
+        <h3>Guías Resueltas</h3>
+    </div>
+    <div class="service">
+        <img src="examen.png" alt="Exámenes de Diagnóstico">
+        <h3>Exámenes de Diagnóstico</h3>
+    </div>
+    <div class="service">
+        <img src="material.png" alt="Material de Apoyo">
+        <h3>Material de Apoyo</h3>
+    </div>
+</div>
+<script>
+    let slideIndex = 0;
+    showSlides(slideIndex);
+
+    function moveSlide(n) {
+    showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+    showSlides(slideIndex = n - 1);
+    }
+
+    function showSlides(n) {
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    if (n >= slides.length) {
+    slideIndex = 0;
+    } else if (n < 0) {
+    slideIndex = slides.length - 1;
+    }
+
+    slides.forEach((slide, index) => {
+    slide.style.display = (index === slideIndex) ? "block" : "none";
+    });
+
+    dots.forEach((dot, index) => {
+    dot.className = (index === slideIndex) ? "dot active" : "dot";
+    });
+    }
+    setInterval(() => {
+    moveSlide(1);
+    }, 5000);
+    </script>
+
+<div class="container">
+    <div class="box">
+        <h2> A) Plan Básico</h2>
+        <ul style="line-height: 1.5;">
+            <li> Profesores Especializados.</li>
+            <li>Cobertura completa del temario de la guía oficial.</li>
+            <li>Exámenes diagnóstico y simulacros.</li>
+            <li>Material exclusivo.</li>
+            <li>Asesorías personalizadas.</li>
+            <li>Seguimiento constante.</li>
+        </ul>
+        <h2> Beneficios adicionales:</h2>
+        <ul style="line-height: 2.0;">
+            <li> Ambiente de estudio dinámico y motivador.</li>
+            <li> Soporte en línea para consultas fuera del horario de clase.</li>
+        </ul>
+        <div class="container">
+            <button type="button">
+                <a href="Contactos.html" style="text-decoration: none; color: inherit;">Más Información</a>
+            </button>
+        </div>
+    </div>
+    <div class="box">
+        <h2> B) Plan Compromiso </h2>
+        <ul style="line-height: 1.5;">
+            <li> Profesores Especializados.</li>
+            <li>Cobertura completa del temario de la guía oficial.</li>
+            <li>Exámenes diagnóstico y simulacros.</li>
+            <li>Material exclusivo.</li>
+            <li>Asesorías personalizadas.</li>
+            <li>Seguimiento constante.</li>
+        </ul>
+        <h2>Garantía Exclusiva:</h2>
+        <ul style="line-height: 2.0;">
+            <li>¡SÓLO PAGAS SI ERES ACEPTADO!</li>
+            <li>Solo pagas la inscripción, ¡y el resto lo cubres una vez que logres tu objetivo de ingreso!</li>
+        </ul>
+        <div class="container">
+            <button type="button">
+                <a href="Contactos.html" style="text-decoration: none; color: inherit;">Más Información</a>
+            </button>
+        </div>
+    </div>
+    <div class="box">
+        <h2>C) Alto Rendimiento</h2>
+        <ul style="line-height: 1.5;">
+            <li>Ideal para quienes buscan no solo ingresar, sino destacar!</li>
+            <li>Cuenta con todos los beneficios del plan básico.</li>
+            <li>Talleres de Orientación Vocacional.</li>
+            <li>Técnicas Avanzadas de Estudio.</li>
+            <li>Talleres de Razonamiento.</li>
+        </ul>
+        <h2>Beneficios Exclusivos:</h2>
+        <ul style="line-height: 1.5;">
+            <li>Clases y asesorías premium.</li>
+            <li>Acceso a simulacros avanzados con análisis.</li>
+            <li>Grupos reducidos.</li>
+            <li>Monitoreo continuo de tus avances.</li>
+            <li>Charlas motivacionales con especialistas.</li>
+        </ul>
+        <div class="container">
+            <button type="button">
+                <a href="Contactos.html" style="text-decoration: none; color: inherit;">Más Información</a>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Inscribete -->
+<section class="work-with-me">
+    <div class="work-image">
+        <img src="estudiar.png" alt="Woman looking in the mirror">
+    </div>
+    <div style="background-color: #afe8ff; padding: 50px; border-radius: 20px; width: 30%; position: absolute; top: 27%; left: 75%; transform: translate(-50%, -20%); z-index: 10; display: flex; flex-direction: row; align-items: flex-start; justify-content: center;">
+    <div style="width: 100%;">
+        <form action="https://formspree.io/f/https://formspree.io/f/xanwzlzw" method="POST" style="display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <div style="width: 48%;">
+                    <label for="firstName">Nombre(s):*</label><br>
+                    <input type="text" id="firstName" name="firstName" style="width: 100%; padding: 5px;" required>
+                </div>
+                <div style="width: 48%;">
+                    <label for="lastName">Apellidos:*</label><br>
+                    <input type="text" id="lastName" name="lastName" style="width: 100%; padding: 5px;" required>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <div style="width: 48%;">
+                    <label for="phone">Teléfono:*</label><br>
+                    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 5px;">
+                </div>
+                <div style="width: 48%;">
+                    <label for="email">Correo Electrónico:*</label><br>
+                    <input type="email" id="email" name="email" style="width: 100%; padding: 5px;">
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <div style="width: 48%;">
+                    <label for="course">Curso:*</label><br>
+                    <select id="course" name="course" style="width: 100%; padding: 5px;">
+                        <option value="IPN">IPN</option>
+                        <option value="UNAM">UNAM</option>
+                        <option value="UAM">UAM</option>
+                        <option value="UAEMEX">UAEMEX</option>
+                        <option value="COMIPEMS">COMIPEMS</option>
+                        <option value="UADY">UADY</option>
+                        <option value="UV">UV</option>
+                        <option value="TECNM">TECNM</option>
+                    </select>
+                </div>
+                <div style="width: 48%;">
+                    <label for="mode">Modalidad:*</label><br>
+                    <select id="mode" name="mode" style="width: 100%; padding: 5px;">
+                        <option value="presencial">Presencial</option>
+                        <option value="en-linea">En línea</option>
+                        <option value="hibrido">Híbrido</option>
+                    </select>
+                </div>
+            </div>
+            <div style="text-align: left; margin-bottom: 10px;">
+                <label for="message">Mensaje:</label><br>
+                <textarea id="message" name="message" rows="4" style="width: 100%; padding: 5px; resize: none;"></textarea>
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+                <input type="submit" value="Enviar" style="background-color: #f7c457; color: rgb(0, 0, 0); padding: 8px 18px; border-radius: 12px; font-size: 14px; cursor: pointer;">
+            </div>
+        </form>
+    </div>
+</section>
+<!-- Pie de página -->
+<footer>
+    <div class="footer-container">
+        <p>Escríbenos por medio del chat de la página o:</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+                <span>5524498795</span>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+                <span>Ingresa.con</span>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
+                <span>Ingresa.con</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e74f25df-c4f6-4c82-8964-59631d82ef23";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+header {
+        background-color: #000000;
+        color: white;
+        padding: 0px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px; /* Altura mínima suficiente para los elementos */
+        position: relative;
+        z-index: 1000;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+
+    /* IMAGENES DE REDES DEL HEADER */
+    .social-icons {
+    display: flex;
+    gap: 30px; /* Ajusta este valor para el espacio entre las imágenes */
+}
+/* CONFIGURACION DE LA LINEA NEGRA */
+    .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 2px 4px;
+    color: rgb(0, 0, 0);
+}
+/*LOGO Y OPCIONES*/
+.logo img {
+    height:60px;
+    width: auto;
+    padding: 2px 27px;
+}
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.main-nav li {
+    margin-left: 20px;
+}
+.main-nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 5px 10px;
+}
+.main-nav a:hover {
+    background: #707272;
+    border-radius: 5px;
+}
+
+.contact {
+    color: white;
+    font-size: 18px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
+    z-index: 1001;
+}
+.dropdown-content a {
+    padding: 6px 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 17px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover > a {
+    background-color: #707272;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .slider {
+        height: 30vh; /* Reducir la altura del slider en pantallas pequeñas */
+        margin-bottom: 2vh; /* Reducir el margen inferior */
+    }
+
+    .container {
+        margin-top: 2vh; /* Reducir el margen superior de la sección "Nuestros Cursos" */
+    }
+}
+
+/* SLIDER */
+.slider-container {
+        position: relative;
+        width: 100%;
+        height: 70vh; /* Ajusta la altura al 70% de la pantalla visible */
+        z-index: 1; /* Fondo */
+    }
+    .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .slider img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        font-family: 'Arial', sans-serif;
+    }
+
+    .work-with-me {
+        position: relative; /* Para que el contenido esté sobre el slider */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 100px;
+        height: 50vh; /* Igual que el slider */
+        z-index: 2; /* Por encima del slider */
+        color: #333;
+        background-color: #e8e9e3; /* Cambia el color de fondo */
+    }
+
+    .work-image {
+        width: 45%;
+        position: relative;
+        top: -80px; /* Sube la imagen más arriba */
+    }
+
+    .work-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 45%;
+    padding: 20px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+    text-align: center; /* Centra el botón y el texto */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: rgb(36, 88, 148); /* Texto en blanco */
+        text-align: center;
+    }
+
+    .work-text h1 span {
+        font-style: italic;
+    }
+
+    .work-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    button {
+    padding: 10px 30px;
+    background-color: #ffec3c;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #24c9c9;
+  }
+    .imagine-section {
+    text-align: center;
+    padding: 10px 60px; /* Ajusta el padding verticalmente */
+    background-color: #a9d5ee;
+}
+.imagine-section h2 {
+    font-size: 45px;
+    color: #135fb6;
+    margin-top: 30px; /* Ajusta este valor para bajar más el título principal */
+}
+.imagine-list {
+    display: flex;
+    justify-content: space-around; /* Alinea las columnas con espacio alrededor */
+    margin-top: 0px;
+}
+
+.list-column {
+    flex: 1; /* Asegura que las columnas ocupen el espacio disponible igualmente */
+    padding: 0 50px; /* Agrega padding interno para evitar que el contenido esté pegado a los bordes */
+}
+
+.list-column ul {
+    list-style-type: none;
+    padding: 0px; /* Elimina el padding por defecto de las listas */
+    margin: 60px; /* Elimina el margen por defecto de las listas */
+}
+
+.list-item {
+    display: flex;
+    align-items: center; /* Alinea la imagen y el texto verticalmente al centro */
+    margin-bottom: 30px; /* Espacio entre los elementos de la lista */
+}
+
+.list-icon {
+    width: 80px; /* Ajusta el tamaño de la imagen */
+    height: 80px; /* Mantiene la proporción de la imagen */
+    margin-right: 15px; /* Espacio entre la imagen y el texto */
+    margin-top: 20px; /* Ajusta este valor según sea necesario */
+}
+
+.list-text {
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.list-text h3 {
+    margin: 0 0 15px 0; /* Espacio debajo del título */
+    font-size: 1.2rem; /* Tamaño del título */
+}
+
+.list-text p {
+    margin: 0; /* Elimina el margen por defecto del párrafo */
+}
+
+.container {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* Agregar un margen superior para más separación */
+}
+.box {
+    background-color: #b2dd74;
+    color: rgb(0, 0, 0);
+    width: 400px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align:justify;
+    font-family: 'Times New Roman', Times, serif
+}
+.box h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif
+}
+.box p {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 0px 50px;
+}
+.box a {
+    text-decoration: none;
+    background-color: white;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.box a:hover {
+    background-color: #ddd;
+}
+
+footer {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 70px; /* Aumenta este valor para bajar el pie de página */
+        border-top: 1px solid rgb(255, 255, 255); /* Línea negra delgada */
+        background-color: #000000;
+        font-size: 14px;
+    }
+
+    .footer-container p {
+        font-size: 1em;
+        color: rgb(255, 255, 255);
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px; /* Espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-item span {
+        font-size: 1.2em;
+        color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 768px) {
+        .contact-info {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+    </div>
+    <h1 class="contact">Contacto: 55 2449 8795</h1>
+    <div class="social-icons">
+        <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+        <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+        <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
+    </div>
+</header>
+</nav>
+<nav class="main-nav">
+    <div class="logo">
+        <img src="Ingresaentrada.png" alt="Logo de la empresa">
+    </div>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+            <a href="#">Cursos ▼</a>
+            <div class="dropdown-content">
+                <a href="COMIPEMS.html">COMIPEMS</a>
+                <a href="IPN.html">IPN</a>
+                <a href="UNAM.html">UNAM</a>
+                <a href="UAM.html">UAM</a>
+                <a href="UAEMEX.html">UAEMEX</a>
+                <a href="UADY.html">UADY</a>
+                <a href="UV.html">UV</a>
+                <a href="TECNM.html">TECNM</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Iniciar Sesión ▼</a>
+            <div class="dropdown-content">
+            <a href="login.html">Alumnos</a>
+        </li>
+        <li><a href="NOSOTROS.html">Nosotros</a></li>
+        <li><a href="Contactos.html">Contáctanos</a></li>
+    </ul>
+</nav>
+<!-- Slider Background -->
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide"><img src="Bannerpag.png" alt="Imagen 1"></div>
+    </div>
+</div>
+
+<!-- QUIENES SOMOS -->
+<section class="work-with-me">
+    <div class="work-image">
+        <img src="logotipo.jpeg" alt="Woman looking in the mirror">
+    </div>
+    <div class="work-text">
+        <h1>¿Quiénes somos?</h1>
+        <p>Somos un centro educativo con más de 30 años de experiencia, especializado en preparar a estudiantes para su ingreso a preparatorias y universidades de prestigio. Ofrecemos cursos tanto presenciales como en línea, adaptados a tus necesidades, para que puedas alcanzar tus metas académicas y asegurar tu futuro. Con nosotros, recibirás la guía y el apoyo necesarios para triunfar en tus exámenes de admisión y acceder a la institución de tus sueños.</p>
+        <button type="button">
+            <a href="Aviso de privacidad.html" style="text-decoration: none; color: inherit;">Aviso de Privacidad</a>
+        </button>
+    </div>
+</div>
+</section>
+<!-- VALORES -->
+<section class="imagine-section">
+    <h2>Valores Ingresa.con</h2>
+    <div class="imagine-list">
+        <div class="list-column">
+            <ul>
+                <li>
+                    <div class="list-item">
+                        <img src="Compromiso.png" alt="Compromiso" class="list-icon">
+                        <div class="list-text">
+                            <h3>Compromiso</h3>
+                            <p>Enfocarse en los resultados y el éxito académico de los estudiantes, brindando apoyo adicional y recursos según sea necesario.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <img src="Responsabilidad.png" alt="Responsabilidad" class="list-icon">
+                        <div class="list-text">
+                            <h3>Responsabilidad</h3>
+                            <p>Brindar asistencia y orientación adaptada a las necesidades individuales de cada estudiante, comentarios constructivos para ayudar a los estudiantes a mejorar.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <img src="Honestidad.png" alt="Honestidad" class="list-icon">
+                        <div class="list-text">
+                            <h3>Honestidad</h3>
+                            <p>Ser claro y directo sobre el contenido del curso, los costos, y las expectativas para evitar malentendidos, evitando exageraciones o promesas engañosas.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="list-column">
+            <ul>
+                <li>
+                    <div class="list-item">
+                        <img src="Integridad.png" alt="Integridad" class="list-icon">
+                        <div class="list-text">
+                            <h3>Integridad</h3>
+                            <p>Actuar con honestidad y transparencia en todas las interacciones y servicios, garantizando la confiabilidad de los cursos y la veracidad de la información proporcionada.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <img src="Respeto.png" alt="Respeto" class="list-icon">
+                        <div class="list-text">
+                            <h3>Respeto</h3>
+                            <p>Prestar atención a las preocupaciones y sugerencias de los estudiantes, y considerar sus perspectivas de manera seria, evitando cualquier forma de discriminación o trato injusto.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="list-item">
+                        <img src="Inovación.png" alt="Innovación" class="list-icon">
+                        <div class="list-text">
+                            <h3>Innovación</h3>
+                            <p>Utilizar métodos y tecnologías modernas para mejorar la enseñanza y adaptarse a las necesidades cambiantes de los estudiantes.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- MISIÓN -->
+<div class="container">
+    <div class="box">
+        <h2>MISIÓN</h2>
+        <p style="line-height: 1.5;">
+            Nuestra misión es empoderar a los estudiantes proporcionándoles herramientas educativas de alta calidad y estrategias personalizadas para superar con éxito los exámenes de ingreso a la preparatoria y la universidad.Nos comprometemos a ofrecer un ambiente de aprendizaje integral y motivador, que fomente el desarrollo académico.</p>
+    </div>
+    <div class="box">
+        <h2>VISIÓN</h2>
+        <p style="line-height: 1.5;">
+            Ser reconocidos como líderes marcando la diferencia en la vida de miles de estudiantes a través de un enfoque innovador, integral y accesible. Aspiramos a ser la opción preferida por estudiantes y padres, impactando positivamente en la educación y contribuyendo al desarrollo de una sociedad más preparada y competitiva.</p>
+    </div>
+</div>
+<footer>
+    <div class="footer-container">
+        <p>Escríbenos por medio del chat de la página o:</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+                <span>5524498795</span>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+                <span>Ingresa.con</span>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
+                <span>Ingresa.con</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e74f25df-c4f6-4c82-8964-59631d82ef23";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+</body>
+</html>
